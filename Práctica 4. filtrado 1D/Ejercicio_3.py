@@ -31,4 +31,8 @@ plt.plot(frec[:N//2], 2.0/N * np.abs(Xf[0:N//2]))
 plt.grid()
 plt.show()
 
+plt.subplot(313)
+markerline, stemlines, baseline = plt.stem(n, x, '-.') #Señal con ruido x(n)
+plt.show()
+
 # %%

@@ -13,7 +13,7 @@ f = 100   # Frecuencia fundamental
 Na = 2 # Numero de armonicos
 media = 0  # Media del ruido
 sigma = 0.2 # Desviacion tipica
-Lh=15
+Lh=50
 "================================================="
 " Creación de señales "
 
@@ -31,14 +31,16 @@ xcos = xcos+suma
 
 "Creamos un vector con ruido y se lo sumamos a la función"
 xn = np.random.normal(media, sigma, lx)
+plt.subplot(312)
+markerline, stemlines, baseline = plt.stem(nx, xn, '-.') # Señal ruido
 
 x = xcos + xn #La función + Ruido
 
 
 plt.subplot(311)
-markerline, stemlines, baseline = plt.stem(nx, xcos, '-.') #Señal original
-plt.subplot(312)
-markerline, stemlines, baseline = plt.stem(nx, x, '-.') #Señal con ruido
+markerline, stemlines, baseline = plt.stem(nx, xcos, '-.') #Señal original xcos(n)
+plt.subplot(313)
+markerline, stemlines, baseline = plt.stem(nx, x, '-.') #Señal con ruido x(n)
 plt.show()
 
 "============================================"
@@ -49,7 +51,13 @@ lh = len(h)
 nh = np.arange(0,lh)/fs
 ly = len(y)
 ny = np.arange(0,ly)/fs
+
 plt.subplot(313)
-markerline, stemlines, baseline = plt.stem(ny, y, '-.')
+markerline, stemlines, baseline = plt.stem(nh, h, '-.') #Filtro de media h(n)
+plt.show()
+
+
+plt.subplot(313)
+markerline, stemlines, baseline = plt.stem(ny, y, '-.') #Señal original reconstruida
 
 # %%

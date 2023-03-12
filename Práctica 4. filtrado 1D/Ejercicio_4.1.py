@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #%%
 import matplotlib.pyplot as plt
 import numpy as np
@@ -27,7 +26,7 @@ Xf = fft(x)
 frec = fftfreq(N, T) 
 
 
-fcorte = 1500
+fcorte = 2 * 1000 #Número de armonicos * frec fundamental (cada armónico tiene 1000Hz) = 1000 Hz
 HPB = (frec > -fcorte) & (frec < fcorte)
 
 Yf = np.multiply(Xf, HPB)
@@ -44,7 +43,5 @@ plt.show()
 plt.subplot(313)
 markerline, stemlines, baseline = plt.stem(ny, y, '-.')
 plt.show()
-
-
 
 # %%

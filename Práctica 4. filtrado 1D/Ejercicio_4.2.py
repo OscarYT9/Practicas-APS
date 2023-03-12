@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #%%
 import matplotlib.pyplot as plt
 import numpy as np
@@ -27,10 +26,10 @@ Xf = fft(x)
 frec = fftfreq(N, T) 
 
 
-fcorte = 1500
-HPB = (frec > -fcorte) & (frec < fcorte)
-
-Yf = np.multiply(Xf, HPB)
+fcorte = 2 * 1000 #Número de armonicos * frec fundamental (cada armónico tiene 1000Hz) = 1000 Hz # Frecuencia de corte del último armónico
+HPB = (frec > -fcorte) & (frec < fcorte) # Filtro de paso bajo
+HPA = HPB -1 # Complemento de frecuencia
+Yf = np.multiply(Xf, HPA)
 
 y = ifft(Yf)
 ly = len(y)
@@ -44,7 +43,4 @@ plt.show()
 plt.subplot(313)
 markerline, stemlines, baseline = plt.stem(ny, y, '-.')
 plt.show()
-
-
-
 # %%
