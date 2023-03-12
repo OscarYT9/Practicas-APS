@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#%%
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy
@@ -8,14 +9,12 @@ import scipy
 tipoconv = 2
 
 "Función 1"
-x = np.ones(5)  # valor de cada punto en la gráfica (1)
+x = np.ones(10)  # valor de cada punto en la gráfica (1)
 Lx = len(x)
 nx = np.arange(0, Lx)  # 0....9    ℎ(𝑘)
 
 "Función 2"
-h = np.zeros(4)
-h[0] = 1  # Señal delta en la posición 0
-h[3] = 1  # Señal delta en la posición 3  # valor de cada punto en la gráfica (1)
+h = np.ones(3)  # valor de cada punto en la gráfica (1)
 Lh = len(h)
 nh = np.arange(0, Lh)  # 0...2 #    𝑥(𝑘)
 
@@ -63,3 +62,5 @@ markerline, stemlines, baseline = plt.stem(nh, h, '-.')
 plt.subplot(313)
 markerline, stemlines, baseline = plt.stem(ny, y, '-.')
 plt.show()
+
+# %%

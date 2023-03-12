@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#%%
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.fft import fft, fftfreq, ifft
@@ -48,3 +50,5 @@ plt.show()
 # Representar la señal filtrada en el dominio del tiempo
 markerline, stemlines, baseline = plt.stem(ny, y, '-.')
 plt.show()
+
+# %%

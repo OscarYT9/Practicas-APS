@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#%%
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -8,7 +9,7 @@ lx = 512  # Num muestras
 fs = 22100  # Frecuencia de muestre oHz
 f = 100   # Frecuencia fundamental
 
-Na = 10 # Numero de armonicos
+Na = 2 # Numero de armonicos
 media = 0  # Media del ruido
 sigma = 1 # Desviacion tipica
 Lh = 10
@@ -39,3 +40,5 @@ markerline, stemlines, baseline = plt.stem(ny, y, '-.')
 plt.subplot(312)
 markerline, stemlines, baseline = plt.stem(xn, funcion, '-.')
 plt.show()
+
+# %%

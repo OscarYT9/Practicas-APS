@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#%%
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy
@@ -12,21 +13,43 @@ f = 100   # Frecuencia fundamental
 Na = 2 # Numero de armonicos
 media = 0  # Media del ruido
 sigma = 0.2 # Desviacion tipica
-duracion =  44100 #en muestras
-n =  np.arange(valini,duracion)/fs
+Lh=15
 "================================================="
-" Creación de coseno "
-f = 200 
-Na = 20
-suma = 0
-xcos = np.cos(2 * np.pi * f * n)
-"================================================="
+" Creación de señales "
 
+
+nx =  np.arange(valini,lx)/fs
+xcos = np.cos(2 * np.pi * f * nx)
+"================================================="
+suma = 0
 for i in range(1,Na+1):
-    xcos2 = np.cos(2 * np.pi * i * f * n)
+    xcos2 = np.cos(2 * np.pi * i * f * nx)
     suma += xcos2
     
 xcos = xcos+suma
+"================================================="
 
-markerline, stemlines, baseline = plt.stem(n[1:100], xcos[1:100])
+"Creamos un vector con ruido y se lo sumamos a la función"
+xn = np.random.normal(media, sigma, lx)
+
+x = xcos + xn #La función + Ruido
+
+
+plt.subplot(311)
+markerline, stemlines, baseline = plt.stem(nx, xcos, '-.') #Señal original
+plt.subplot(312)
+markerline, stemlines, baseline = plt.stem(nx, x, '-.') #Señal con ruido
 plt.show()
+
+"============================================"
+" Filtrado en tiempo "
+h = np.ones(Lh)/Lh
+y = np.convolve(x,h)
+lh = len(h)
+nh = np.arange(0,lh)/fs
+ly = len(y)
+ny = np.arange(0,ly)/fs
+plt.subplot(313)
+markerline, stemlines, baseline = plt.stem(ny, y, '-.')
+
+# %%
