@@ -16,7 +16,7 @@ n =  np.arange(valini,lx)/fs
 sumatorio = 0
 xcos = np.cos(2 * np.pi * f * n)
 for i in range(1,Na+1):
-    xcos2 = np.cos(2 * np.pi * i * f * n)
+    xcos2 = np.cos(2 * np.pi * (i+1) * f * n)
     sumatorio += xcos2
 
 x= xcos + sumatorio

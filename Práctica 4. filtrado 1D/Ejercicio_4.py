@@ -16,18 +16,18 @@ n = np.arange(valini, lx) / fs
 sumatorio = 0
 xcos = np.cos(2 * np.pi * frec * n)
 for i in range(1, Na + 1):
-    xcos2 = np.cos(2 * np.pi * i * frec * n)
+    xcos2 = np.cos(2 * np.pi * (i+1) * frec * n)
     sumatorio += xcos2
 
 x = xcos + sumatorio
 
 N = lx  # Numero de puntos
 T = 1.0 / fs  # Separacion entre puntos
-Xf = fft(x)
+Xf = fft(x) 
 frec = fftfreq(N, T) 
 
 
-fcorte = 1500
+fcorte = 1000
 HPB = (frec > -fcorte) & (frec < fcorte)
 
 Yf = np.multiply(Xf, HPB)

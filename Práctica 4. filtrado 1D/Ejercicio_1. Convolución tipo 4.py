@@ -6,7 +6,7 @@ import scipy
 
 "================================================="
 " Convolución de señales "
-tipoconv = 2
+tipoconv = 1
 
 "Función 1"
 x = np.ones(10)  # valor de cada punto en la gráfica (1)
@@ -14,7 +14,7 @@ Lx = len(x)
 nx = np.arange(0, Lx)  # 0....9    ℎ(𝑘)
 
 "Función 2"
-h = np.ones(3)  # valor de cada punto en la gráfica (1)
+h = [1,2]  # valor de cada punto en la gráfica (1)
 Lh = len(h)
 nh = np.arange(0, Lh)  # 0...2 #    𝑥(𝑘)
 

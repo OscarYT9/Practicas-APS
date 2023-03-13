@@ -7,7 +7,7 @@ from scipy.fft import fft, fftfreq, ifft
 valini = 0 # Valor inicial
 lx = 512  # Num muestras
 fs = 22100  # Frecuencia de muestreo en Hz
-frec = 1000   # Frecuencia fundamental
+frec = 1000  # Frecuencia fundamental
 Na = 2 # Numero de armónicos
 Lh = 10
 

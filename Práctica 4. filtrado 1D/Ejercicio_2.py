@@ -23,7 +23,7 @@ xcos = np.cos(2 * np.pi * f * nx)
 "================================================="
 suma = 0
 for i in range(1,Na+1):
-    xcos2 = np.cos(2 * np.pi * i * f * nx)
+    xcos2 = np.cos(2 * np.pi * (i+1) * f * nx)
     suma += xcos2
     
 xcos = xcos+suma
